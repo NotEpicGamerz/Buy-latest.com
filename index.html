@@ -1,1199 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>BUY-LATEST | Makeup & Beauty Picks</title>
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Buy-Latest: makeup picks, linked on Amazon</title>
+<meta name="description" content="Makeup picks for face, eyes, lips and cheeks, each with a link to buy on Amazon.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Gloock&display=swap">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:"DM Sans",Arial,sans-serif;
-    background:#fffaf7;
-    color:#292322;
-}
-
-/* HEADER */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(255,250,247,.96);
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid #eaded8;
-}
-
-.nav{
-    max-width:1200px;
-    margin:auto;
-    padding:18px 20px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-}
-
-.logo{
-    font-family:"Playfair Display",serif;
-    font-size:28px;
-    font-weight:700;
-    color:#3b2522;
-}
-
-.logo span{
-    color:#b76e79;
-}
-
-nav{
-    display:flex;
-    gap:25px;
-}
-
-nav a{
-    text-decoration:none;
-    color:#4a3b38;
-    font-weight:600;
-    font-size:14px;
-}
-
-nav a:hover{
-    color:#b76e79;
-}
-
-/* HERO */
-
-.hero{
-    max-width:1200px;
-    margin:auto;
-    padding:75px 20px 55px;
-    display:grid;
-    grid-template-columns:1.1fr .9fr;
-    gap:45px;
-    align-items:center;
-}
-
-.hero-text small{
-    display:inline-block;
-    background:#f3e1e1;
-    color:#965963;
-    padding:8px 13px;
-    border-radius:30px;
-    font-weight:700;
-    margin-bottom:18px;
-}
-
-.hero h1{
-    font-family:"Playfair Display",serif;
-    font-size:clamp(45px,6vw,75px);
-    line-height:1.03;
-    margin-bottom:20px;
-}
-
-.hero h1 span{
-    color:#b76e79;
-}
-
-.hero p{
-    max-width:580px;
-    color:#756866;
-    font-size:17px;
-    line-height:1.7;
-}
-
-.hero-buttons{
-    display:flex;
-    gap:12px;
-    margin-top:28px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    border:0;
-    border-radius:12px;
-    padding:14px 20px;
-    font-weight:700;
-    cursor:pointer;
-    text-decoration:none;
-    display:inline-block;
-}
-
-.btn-primary{
-    background:#292322;
-    color:white;
-}
-
-.btn-primary:hover{
-    background:#b76e79;
-}
-
-.btn-light{
-    background:#f1e5e0;
-    color:#4b3834;
-}
-
-.btn-light:hover{
-    background:#ead3ce;
-}
-
-.hero-image{
-    min-height:430px;
-    border-radius:28px;
-    overflow:hidden;
-    background:
-        linear-gradient(rgba(40,25,20,.05),rgba(40,25,20,.1)),
-        url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85")
-        center/cover;
-}
-
-/* SECTIONS */
-
-.section{
-    max-width:1200px;
-    margin:auto;
-    padding:65px 20px;
-}
-
-.section-heading{
-    text-align:center;
-    margin-bottom:35px;
-}
-
-.section-heading h2{
-    font-family:"Playfair Display",serif;
-    font-size:42px;
-    margin-bottom:10px;
-}
-
-.section-heading p{
-    color:#786b68;
-}
-
-/* CATEGORIES */
-
-.categories{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.category{
-    border:1px solid #eaded8;
-    border-radius:20px;
-    padding:30px;
-    background:white;
-    cursor:pointer;
-    transition:.25s;
-}
-
-.category:hover{
-    transform:translateY(-5px);
-    box-shadow:0 15px 35px rgba(80,40,35,.08);
-}
-
-.category h3{
-    font-family:"Playfair Display",serif;
-    font-size:28px;
-    margin-bottom:8px;
-}
-
-.category p{
-    color:#766966;
-    line-height:1.6;
-}
-
-.category button{
-    margin-top:20px;
-    border:0;
-    background:#f4e4e2;
-    color:#8d535c;
-    padding:10px 15px;
-    border-radius:10px;
-    font-weight:700;
-    cursor:pointer;
-}
-
-/* SHOP */
-
-.shop-section{
-    background:#f8efeb;
-}
-
-.toolbar{
-    max-width:1200px;
-    margin:0 auto 30px;
-    padding:0 20px;
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-}
-
-.search{
-    flex:1;
-    min-width:220px;
-    padding:14px 16px;
-    border:1px solid #dfd0ca;
-    border-radius:12px;
-    background:white;
-    font-size:15px;
-    outline:none;
-}
-
-.search:focus,
-select:focus{
-    border-color:#b76e79;
-}
-
-select{
-    padding:14px 15px;
-    border:1px solid #dfd0ca;
-    border-radius:12px;
-    background:white;
-    font-weight:600;
-    outline:none;
-}
-
-/* PRODUCTS */
-
-.products{
-    max-width:1200px;
-    margin:auto;
-    padding:0 20px 70px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:22px;
-}
-
-.product{
-    background:white;
-    border:1px solid #eaded8;
-    border-radius:20px;
-    overflow:hidden;
-    transition:.25s;
-}
-
-.product:hover{
-    transform:translateY(-5px);
-    box-shadow:0 15px 35px rgba(80,40,35,.09);
-}
-
-.product-image{
-    height:280px;
-    overflow:hidden;
-    background:#f2e7e2;
-}
-
-.product-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:.4s;
-}
-
-.product:hover .product-image img{
-    transform:scale(1.05);
-}
-
-.product-info{
-    padding:20px;
-}
-
-.badge{
-    display:inline-block;
-    padding:6px 9px;
-    border-radius:20px;
-    background:#f4e4e2;
-    color:#965963;
-    font-size:11px;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:.5px;
-}
-
-.product h3{
-    font-family:"Playfair Display",serif;
-    font-size:23px;
-    margin:12px 0 5px;
-}
-
-.brand{
-    color:#8c7b77;
-    font-size:13px;
-    margin-bottom:12px;
-}
-
-.description{
-    color:#716360;
-    font-size:14px;
-    line-height:1.6;
-    min-height:45px;
-}
-
-.price{
-    font-size:22px;
-    font-weight:800;
-    margin:17px 0;
-}
-
-.product-buttons{
-    display:flex;
-    gap:8px;
-}
-
-.product-buttons button,
-.product-buttons a{
-    flex:1;
-    text-align:center;
-    padding:11px 8px;
-    border-radius:10px;
-    border:0;
-    cursor:pointer;
-    font-weight:700;
-    text-decoration:none;
-    font-size:13px;
-}
-
-.details-btn{
-    background:#f2e6e1;
-    color:#503d39;
-}
-
-.details-btn:hover{
-    background:#ead6d0;
-}
-
-.amazon-btn{
-    background:#292322;
-    color:white;
-}
-
-.amazon-btn:hover{
-    background:#b76e79;
-}
-
-/* ABOUT */
-
-.about{
-    max-width:900px;
-    margin:auto;
-    padding:80px 20px;
-    text-align:center;
-}
-
-.about h2{
-    font-family:"Playfair Display",serif;
-    font-size:42px;
-    margin-bottom:20px;
-}
-
-.about p{
-    color:#70625e;
-    line-height:1.8;
-}
-
-/* FOOTER */
-
-footer{
-    background:#292322;
-    color:white;
-    padding:45px 20px;
-    text-align:center;
-}
-
-footer h2{
-    font-family:"Playfair Display",serif;
-    margin-bottom:12px;
-}
-
-footer p{
-    color:#cfc1bd;
-    font-size:13px;
-    max-width:700px;
-    margin:8px auto;
-    line-height:1.6;
-}
-
-/* MODAL */
-
-.modal{
-    position:fixed;
-    inset:0;
-    background:rgba(20,12,10,.65);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    z-index:2000;
-}
-
-.modal.active{
-    display:flex;
-}
-
-.modal-box{
-    width:min(900px,100%);
-    max-height:90vh;
-    overflow:auto;
-    background:#fffaf7;
-    border-radius:25px;
-    padding:25px;
-    position:relative;
-}
-
-.close{
-    position:absolute;
-    top:15px;
-    right:18px;
-    border:0;
-    background:#eee0db;
-    width:38px;
-    height:38px;
-    border-radius:50%;
-    font-size:20px;
-    cursor:pointer;
-    z-index:5;
-}
-
-.close:hover{
-    background:#dfc9c1;
-}
-
-.modal-content{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
-}
-
-.modal-content img{
-    width:100%;
-    height:430px;
-    object-fit:cover;
-    border-radius:18px;
-}
-
-.modal-info{
-    padding:15px 10px;
-}
-
-.modal-info h2{
-    font-family:"Playfair Display",serif;
-    font-size:38px;
-    margin:12px 0 5px;
-}
-
-.modal-brand{
-    color:#8b7772;
-    margin-bottom:18px;
-}
-
-.modal-price{
-    font-size:28px;
-    font-weight:800;
-    margin:20px 0;
-}
-
-.modal-info p{
-    color:#6e605d;
-    line-height:1.7;
-}
-
-.features{
-    margin:20px 0;
-    padding-left:20px;
-}
-
-.features li{
-    margin:8px 0;
-    color:#5e504d;
-}
-
-.full-amazon{
-    display:block;
-    text-align:center;
-    padding:15px;
-    border-radius:12px;
-    background:#292322;
-    color:white;
-    text-decoration:none;
-    font-weight:800;
-    margin-top:20px;
-}
-
-.full-amazon:hover{
-    background:#b76e79;
-}
-
-/* NO RESULTS */
-
-.no-results{
-    grid-column:1/-1;
-    text-align:center;
-    padding:50px;
-    color:#786a66;
-}
-
-/* MOBILE */
-
-@media(max-width:850px){
-
-    nav{
-        display:none;
-    }
-
-    .hero{
-        grid-template-columns:1fr;
-        padding-top:45px;
-    }
-
-    .hero-image{
-        min-height:330px;
-    }
-
-    .categories{
-        grid-template-columns:1fr;
-    }
-
-    .products{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .modal-content{
-        grid-template-columns:1fr;
-    }
-
-    .modal-content img{
-        height:300px;
-    }
-}
-
-@media(max-width:560px){
-
-    .nav{
-        padding:15px;
-    }
-
-    .logo{
-        font-size:24px;
-    }
-
-    .hero{
-        padding-left:15px;
-        padding-right:15px;
-    }
-
-    .hero h1{
-        font-size:45px;
-    }
-
-    .hero-image{
-        min-height:280px;
-    }
-
-    .section{
-        padding-left:15px;
-        padding-right:15px;
-    }
-
-    .products{
-        grid-template-columns:1fr;
-        padding-left:15px;
-        padding-right:15px;
-    }
-
-    .toolbar{
-        flex-direction:column;
-        padding-left:15px;
-        padding-right:15px;
-    }
-
-    select,
-    .search{
-        width:100%;
-    }
-
-    .section-heading h2,
-    .about h2{
-        font-size:34px;
-    }
-
-    .modal-info h2{
-        font-size:30px;
-    }
-
-    .product-buttons{
-        flex-direction:column;
-    }
-}
+:root{--bg:#FFF4F7;--surface:#fff;--ink:#2A1030;--muted:#6B5570;--accent:#C2185B;--accent-text:var(--accent);--line:#F0D9E2;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1B0F20;--surface:#26162C;--ink:#F7E9F0;--muted:#C2A9C9;--line:#3A2442;--accent-text:color-mix(in srgb,var(--accent) 45%,#fff)}}
+:root[data-theme="dark"]{--bg:#1B0F20;--surface:#26162C;--ink:#F7E9F0;--muted:#C2A9C9;--line:#3A2442;--accent-text:color-mix(in srgb,var(--accent) 45%,#fff)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55;font-size:17px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+a{color:var(--accent-text)}
+:focus-visible{outline:3px solid var(--accent-text);outline-offset:3px}
+header{padding:22px 0 0;display:flex;justify-content:space-between;align-items:baseline;gap:12px 20px;flex-wrap:wrap}
+.logo{font-family:Gloock,Georgia,serif;font-size:1.6rem;text-decoration:none;color:var(--ink)}
+.note{margin:0;color:var(--muted);font-size:.85rem}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:56px 0 64px}
+h1,h2,h3{font-family:Gloock,Georgia,serif;font-weight:400;margin:0}
+h1{font-size:clamp(2.6rem,7vw,4.7rem);line-height:1.02;letter-spacing:-.01em;margin-bottom:18px}
+.lede{font-size:1.15rem;color:var(--muted);max-width:34ch;margin:0 0 24px}
+.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;text-decoration:none;padding:12px 22px;border-radius:999px;white-space:nowrap}
+.btn:hover{filter:brightness(1.1)}
+.picker{background:var(--surface);border-radius:26px;padding:26px 24px 22px}
+.picker h2{font-size:1.3rem;margin-bottom:6px}
+.picker p{margin:0;color:var(--muted);font-size:.95rem}
+.bullets{display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap;min-height:116px;padding:26px 0 18px}
+.bullet{border:0;padding:0;width:46px;height:84px;border-radius:23px 23px 7px 7px;background:linear-gradient(var(--c) 0 62%,#4A3350 62%);cursor:pointer;transition:transform .2s}
+.bullet[aria-pressed=true]{transform:translateY(-14px);box-shadow:0 0 0 3px var(--surface),0 0 0 5px var(--c)}
+.shade{font-weight:700;color:var(--ink)!important;margin-bottom:4px!important}
+.shop{padding-bottom:56px}
+.shop h2{font-size:clamp(1.9rem,4.5vw,2.8rem);margin-bottom:6px}
+.shop>p{color:var(--muted);margin:0 0 20px;max-width:56ch}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.chips button{font:inherit;padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
+ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{background:var(--surface);border-radius:18px;padding:22px;display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.ico{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-size:1.6rem;background:color-mix(in srgb,var(--accent) 14%,var(--surface));margin-bottom:10px}
+.cat{margin:0;color:var(--accent-text);font-weight:700;font-size:.9rem}
+.card h3{font-size:1.35rem;line-height:1.2}
+.card .why{margin:2px 0 14px;color:var(--muted)}
+.card .btn{margin-top:auto}
+.how{border-top:1px solid var(--line);padding:40px 0 48px;max-width:62ch}
+.how h2{font-size:1.6rem;margin-bottom:10px}
+.how p{margin:0;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:22px 0 32px;color:var(--muted);font-size:.9rem}
+footer p{margin:0}
+@media (max-width:760px){.hero{grid-template-columns:1fr;padding:36px 0 44px;gap:32px}}
+@media (prefers-reduced-motion:reduce){.bullet{transition:none}html{scroll-behavior:auto}}
 </style>
 </head>
-
 <body>
-
-<!-- HEADER -->
-
+<div class="wrap">
 <header>
-
-    <div class="nav">
-
-        <div class="logo">
-            BUY-<span>LATEST</span>
-        </div>
-
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#shop">Shop</a>
-            <a href="#categories">Categories</a>
-            <a href="#about">About</a>
-        </nav>
-
-    </div>
-
+<a class="logo" href="#">Buy-Latest</a>
+<p class="note">As an Amazon Associate we earn from qualifying purchases.</p>
 </header>
 
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-    <div class="hero-text">
-
-        <small>
-            BEAUTY PICKS • BUDGET TO LUXURY
-        </small>
-
-        <h1>
-            Discover your next
-            <span>beauty favorite.</span>
-        </h1>
-
-        <p>
-            Discover makeup and beauty products for every budget —
-            from affordable everyday essentials to luxury beauty
-            worth checking out.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="#shop" class="btn btn-primary">
-                Explore Makeup
-            </a>
-
-            <button
-                class="btn btn-light"
-                onclick="filterTier('Budget')"
-            >
-                Shop Budget Picks
-            </button>
-
-        </div>
-
-    </div>
-
-    <div class="hero-image"></div>
-
+<section class="hero">
+<div>
+<h1>Makeup we're into right now.</h1>
+<p class="lede">New finds and old favorites, each with a link to buy it on Amazon.</p>
+<a class="btn" href="#shop">Shop the picks</a>
+</div>
+<div class="picker" role="group" aria-labelledby="pt">
+<h2 id="pt">Pick your shade</h2>
+<p>The whole site changes to match.</p>
+<div class="bullets" id="bullets"></div>
+<p class="shade" id="shade" aria-live="polite">Raspberry</p>
+</div>
 </section>
 
-
-<!-- CATEGORIES -->
-
-<section class="section" id="categories">
-
-    <div class="section-heading">
-
-        <h2>Shop by budget</h2>
-
-        <p>
-            Find beauty products that fit your style and budget.
-        </p>
-
-    </div>
-
-    <div class="categories">
-
-        <div
-            class="category"
-            onclick="filterTier('Budget')"
-        >
-
-            <h3>Budget</h3>
-
-            <p>
-                Affordable makeup for everyday looks without
-                spending too much.
-            </p>
-
-            <button>
-                Explore Budget →
-            </button>
-
-        </div>
-
-
-        <div
-            class="category"
-            onclick="filterTier('Mid-range')"
-        >
-
-            <h3>Mid-range</h3>
-
-            <p>
-                Popular beauty products with a balance of
-                quality and price.
-            </p>
-
-            <button>
-                Explore Mid-range →
-            </button>
-
-        </div>
-
-
-        <div
-            class="category"
-            onclick="filterTier('Luxury')"
-        >
-
-            <h3>Luxury</h3>
-
-            <p>
-                Premium makeup products for special occasions
-                and beauty lovers.
-            </p>
-
-            <button>
-                Explore Luxury →
-            </button>
-
-        </div>
-
-    </div>
-
+<section class="shop" id="shop">
+<h2>The picks</h2>
+<p>Each button opens an Amazon search for that product, so you see today's price, stock and shade range.</p>
+<div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+<ul id="picks"></ul>
 </section>
 
-
-<!-- SHOP -->
-
-<section class="shop-section" id="shop">
-
-    <div
-        class="section"
-        style="padding-bottom:25px;"
-    >
-
-        <div class="section-heading">
-
-            <h2>Makeup picks</h2>
-
-            <p>
-                Browse our beauty recommendations.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- TOOLBAR -->
-
-    <div class="toolbar">
-
-        <input
-            type="text"
-            id="search"
-            class="search"
-            placeholder="Search lipstick, foundation, mascara..."
-        >
-
-
-        <select id="category">
-
-            <option value="All">
-                All categories
-            </option>
-
-            <option value="Lipstick">
-                Lipstick
-            </option>
-
-            <option value="Foundation">
-                Foundation
-            </option>
-
-            <option value="Mascara">
-                Mascara
-            </option>
-
-            <option value="Blush">
-                Blush
-            </option>
-
-            <option value="Eyeshadow">
-                Eyeshadow
-            </option>
-
-        </select>
-
-
-        <select id="tier">
-
-            <option value="All">
-                All budgets
-            </option>
-
-            <option value="Budget">
-                Budget
-            </option>
-
-            <option value="Mid-range">
-                Mid-range
-            </option>
-
-            <option value="Luxury">
-                Luxury
-            </option>
-
-        </select>
-
-
-        <select id="sort">
-
-            <option value="featured">
-                Featured
-            </option>
-
-            <option value="low">
-                Price: Low to High
-            </option>
-
-            <option value="high">
-                Price: High to Low
-            </option>
-
-            <option value="name">
-                Name A-Z
-            </option>
-
-        </select>
-
-    </div>
-
-
-    <!-- PRODUCTS -->
-
-    <div
-        class="products"
-        id="products"
-    ></div>
-
+<section class="how">
+<h2>How we pick</h2>
+<p>We link to well-known products with lots of shades and reviews on Amazon, so you can compare before you buy.</p>
 </section>
-
-
-<!-- ABOUT -->
-
-<section
-    class="about"
-    id="about"
->
-
-    <h2>
-        Beauty, made easier.
-    </h2>
-
-    <p>
-        BUY-LATEST helps you discover makeup and beauty products
-        across different budgets. We highlight products worth
-        checking out so you can spend less time searching and
-        more time discovering beauty products you love.
-    </p>
-
-</section>
-
-
-<!-- FOOTER -->
 
 <footer>
-
-    <h2>
-        BUY-LATEST
-    </h2>
-
-    <p>
-        Some links on this website may be affiliate links.
-        If you purchase through an affiliate link, we may earn
-        a commission at no additional cost to you.
-    </p>
-
-    <p>
-        As an Amazon Associate I earn from qualifying purchases.
-    </p>
-
-    <p>
-        © <span id="year"></span> BUY-LATEST
-    </p>
-
+<p>As an Amazon Associate Buy-Latest earns from qualifying purchases. Prices and availability change, so check Amazon before you buy.</p>
 </footer>
-
-
-<!-- PRODUCT MODAL -->
-
-<div
-    class="modal"
-    id="modal"
->
-
-    <div class="modal-box">
-
-        <button
-            class="close"
-            onclick="closeModal()"
-            aria-label="Close"
-        >
-            ×
-        </button>
-
-
-        <div class="modal-content">
-
-            <img
-                id="modalImage"
-                src=""
-                alt="Product"
-            >
-
-
-            <div class="modal-info">
-
-                <span
-                    class="badge"
-                    id="modalTier"
-                ></span>
-
-
-                <h2 id="modalName"></h2>
-
-
-                <div
-                    class="modal-brand"
-                    id="modalBrand"
-                ></div>
-
-
-                <div
-                    class="modal-price"
-                    id="modalPrice"
-                ></div>
-
-
-                <p
-                    id="modalDescription"
-                ></p>
-
-
-                <ul
-                    class="features"
-                    id="modalFeatures"
-                ></ul>
-
-
-                <a
-                    id="modalAmazon"
-                    class="full-amazon"
-                    href="#"
-                    target="_blank"
-                    rel="nofollow sponsored noopener"
-                >
-                    Check Price on Amazon ↗
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
 </div>
 
-
 <script>
+const AFFILIATE_TAG = "yourtag-20";
+const picks = [
+  {cat:"Face", ico:"✨", name:"e.l.f. Halo Glow Liquid Filter", q:"elf Halo Glow Liquid Filter", why:"Adds a soft glow under foundation or on its own."},
+  {cat:"Eyes", ico:"👁️", name:"Maybelline Lash Sensational Sky High Mascara", q:"Maybelline Lash Sensational Sky High mascara", why:"A flexible brush that lengthens and separates lashes."},
+  {cat:"Lips", ico:"💋", name:"NYX Butter Gloss", q:"NYX Butter Gloss", why:"A soft, creamy gloss that comes in a big range of shades."},
+  {cat:"Cheeks", ico:"🌸", name:"Milani Baked Blush", q:"Milani Baked Blush", why:"A powder blush with a soft finish you can build up."},
+  {cat:"Tools", ico:"🧽", name:"Real Techniques Miracle Complexion Sponge", q:"Real Techniques Miracle Complexion Sponge", why:"A latex-free sponge for blending foundation and concealer."},
+  {cat:"Face", ico:"✨", name:"Urban Decay All Nighter Setting Spray", q:"Urban Decay All Nighter setting spray", why:"A setting spray to help your makeup last through the day."}
+];
+const shades = [
+  ["Raspberry","#C2185B"],["Orchid","#8F3FD0"],["Cherry","#C8102E"],["Plum","#6B2FA3"],["Peony","#D63A5E"]
+];
+const url = q => "https://www.amazon.com/s?k=" + encodeURIComponent(q) + "&tag=" + AFFILIATE_TAG;
 
-/* =========================================================
-   PRODUCT DATABASE
-   Replace the Amazon links with YOUR affiliate links.
-   ========================================================= */
-
-const products = [
-
-    {
-    id: 3,
-    name: "SKY BEAUTY 24-Piece Professional Makeup Kit for Women",
-    brand: "SKY BEAUTY",
-    category: "Makeup Kit",
-    tier: "Budget",
-    price: 379,
-    mrp: 499,
-    discount: 24,
-    rating: 3.5,
-    reviews: 7,
-    bought: "200+ bought in past month",
-
-    image: "https://share.google/7OmScNmqj5onsqFBi
-
-    description: "24-piece all-in-one makeup kit for women featuring an eyeshadow palette, lipsticks, foundation, primer, BB cream, compact powder, concealer, mascara, eyeliner, makeup brushes and blender.",
-
-    features: [
-        "24-piece makeup kit",
-        "Eyeshadow palette",
-        "Lipsticks",
-        "Foundation",
-        "Primer",
-        "BB cream",
-        "Compact powder",
-        "Concealer",
-        "Mascara",
-        "Eyeliner",
-        "Makeup brushes",
-        "Beauty blender"
-    ],
-
-    amazon: "https://amzn.to/46PbcHH"
+function showPicks(cat){
+  document.getElementById("picks").innerHTML = picks.filter(p => cat === "All" || p.cat === cat).map(p =>
+    `<li class="card"><div class="ico" aria-hidden="true">${p.ico}</div><p class="cat">${p.cat}</p><h3>${p.name}</h3><p class="why">${p.why}</p>` +
+    `<a class="btn" href="${url(p.q)}" target="_blank" rel="sponsored noopener">See on Amazon</a></li>`).join("");
+  document.querySelectorAll("#chips button").forEach(b => b.setAttribute("aria-pressed", b.textContent === cat));
 }
+const chips = document.getElementById("chips");
+chips.innerHTML = ["All", ...new Set(picks.map(p => p.cat))].map(c => `<button type="button" aria-pressed="false">${c}</button>`).join("");
+chips.addEventListener("click", e => { const b = e.target.closest("button"); if (b) showPicks(b.textContent); });
+showPicks("All");
 
-
-    {
-        id: 2,
-        name: "Peach Glow Powder Blush",
-        brand: "Beauty Pick",
-        category: "Blush",
-        tier: "Budget",
-        price: 599,
-
-        image:
-        "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=800&q=85",
-
-        description:
-        "A soft peach blush pick designed to give cheeks a fresh natural-looking glow.",
-
-        features: [
-            "Natural-looking finish",
-            "Buildable color",
-            "Easy everyday application",
-            "Affordable"
-        ],
-
-        amazon:
-        "https://www.amazon.in/"
-    },
-
-
-    {
-        id: 3,
-        name: "Defined Lash Mascara",
-        brand: "Beauty Pick",
-        category: "Mascara",
-        tier: "Mid-range",
-        price: 899,
-
-        image:
-        "https://images.unsplash.com/photo-1631214524020-7e18db5d8c9e?auto=format&fit=crop&w=800&q=85",
-
-        description:
-        "A mascara pick for defined and fuller-looking lashes.",
-
-        features: [
-            "Defines lashes",
-            "Buildable volume",
-            "Suitable for everyday makeup",
-            "Easy application"
-        ],
-
-        amazon:
-        "https://www.amazon.in/"
-    },
-
-
-    {
-        id: 4,
-        name: "Silk Finish Foundation",
-        brand: "Beauty Pick",
-        category: "Foundation",
-        tier: "Mid-range",
-        price: 1499,
-
-        image:
-        "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=85",
-
-        description:
-        "A foundation option for a smooth and polished makeup base.",
-
-        features: [
-            "Smooth finish",
-            "Buildable coverage",
-            "Good for everyday makeup",
-            "Polished finish"
-        ],
-
-        amazon:
-        "https://www.amazon.in/"
-    },
-
-
-    {
-        id: 5,
-        name: "Signature Satin Lip Color",
-        brand: "Luxury Beauty",
-        category: "Lipstick",
-        tier: "Luxury",
-        price: 3299,
-
-        image:
-        "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=800&q=85",
-
-        description:
-        "A premium satin lip color pick for an elegant makeup look.",
-
-        features: [
-            "Premium finish",
-            "Elegant shade",
-            "Smooth texture",
-            "Luxury beauty pick"
-        ],
-
-        amazon:
-        "https://www.amazon.in/"
-    },
-
-
-    {
-        id: 6,
-        name: "The Evening Eyes Palette",
-        brand: "Luxury Beauty",
-        category: "Eyeshadow",
-        tier: "Luxury",
-        price: 4499,
-
-        image:
-        "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=800&q=85",
-
-        description:
-        "A versatile eyeshadow palette pick for creating elegant evening looks.",
-
-        features: [
-            "Multiple shades",
-            "Day-to-night looks",
-            "Blendable colors",
-            "Premium makeup pick"
-        ],
-
-        amazon:
+function setShade(i){
+  document.documentElement.style.setProperty("--accent", shades[i][1]);
+  document.getElementById("shade").textContent = shades[i][0];
+  document.querySelectorAll(".bullet").forEach((b, j) => b.setAttribute("aria-pressed", i === j));
+  try { localStorage.setItem("bl-shade", i); } catch (e) {}
+}
+const bullets = document.getElementById("bullets");
+bullets.innerHTML = shades.map((s, i) => `<button type="button" class="bullet" style="--c:${s[1]}" aria-label="${s[0]}" aria-pressed="false" data-i="${i}"></button>`).join("");
+bullets.addEventListener("click", e => { const b = e.target.closest(".bullet"); if (b) setShade(+b.dataset.i); });
+let start = 0;
+try { const v = +localStorage.getItem("bl-shade"); if (v >= 0 && v < shades.length) start = v; } catch (e) {}
+setShade(start);
+</script>
+</body>
+</html>
